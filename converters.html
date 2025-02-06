@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <title>Temperature converter</title>
+        
+    </head>
+
+    <body>
+
+
+        <script>
+
+// TEMPERATURE
+            function convertToFahrenheit(celsius) {
+                return (celsius * 9 / 5) + 32;
+            }
+
+            function convertToCelsius(fahrenheit) {
+                return (fahrenheit - 32) * 5 / 9;
+            }
+        
+            function convertTemperature(degrees, unit) {
+                if (unit === 'C') {
+                    const result = convertToFahrenheit();
+                    return `${result}F`;
+                } else if (unit === 'F') {
+                    const result = convertToCelsius();
+                    return `${result}C`;
+                }
+            }
+
+            console.log(convertToFahrenheit(25));
+            console.log(convertToCelsius(5));
+
+// LENGTH 1mile = 1.6km, 1mile= 5280 ft, 1km -= 3281 ft
+        
+        // I like to put invalid checks at the top since it's a bit
+        // easier to see. Also, if something is invalid, we can skip
+        // the rest of the function.
+            function convertLength(length, from, to) {
+                if (from !== 'km' && from !== 'miles' && from !== 'ft') {
+                    return `Invalid unit: ${from}`;
+                } else if (to !== 'km' && from !== 'miles' && from !== 'ft') {
+                    return `Invalid unit: ${to}`
+                }
+                
+                
+                if (from === to) {
+                    return `${length} ${from}`;
+                } else if (from === 'km' && to === 'miles') {
+                    return `${length / 1.6} miles`;
+                } else if (from === 'miles' && to === 'km') {
+                    return `${length * 1.6} km`;
+                } else if (from === 'km' && to === 'ft') {
+                    return `${length * 3281} ft`;
+                } else if (from === 'ft' && to === 'km') {
+                    return `${length / 3281} ${to}`;
+                } else if (from === 'miles' && to === 'ft') {
+                    return `${length * 5280} ft`;
+                } else if (from === 'ft' && to === 'miles') {
+                    return `${length / 5280} ${to}`;
+                }
+            }
+
+
+
+            console.log(convertLength(50, 'miles', 'km'));
+            console.log(convertLength(32, 'km', 'miles'));
+            console.log(convertLength(50, 'km', 'km'));
+
+            console.log(convertLength(5, 'miles', 'km'));
+            console.log(convertLength(5, 'miles', 'ft'));
+            console.log(convertLength(5, 'km', 'ft'));
+            console.log(convertLength(5, 'lbs', 'lbs'));
+
+
+            
+
+        </script>
+    </body>
+</html>

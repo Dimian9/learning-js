@@ -42,11 +42,8 @@
             
 
         <script>
-
-
             function playGame(playerMove) {
                 const computerMove = pickComputerMove(); //global variable, must be outside the function's scope/curly braces for onclick to access
-
 
                 let result = '';
 
@@ -83,9 +80,8 @@
 
             }
 
-            const randomNum = Math.floor(Math.random()*3);
-
             function pickComputerMove() {
+                const randomNum = Math.floor(Math.random()*3);
 
                 if (randomNum === 0) {
                     computerMove = 'rock'
