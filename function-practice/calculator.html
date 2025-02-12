@@ -66,28 +66,35 @@
 
     <p>
       <button onclick="
-        updateCalculation('0')
+        updateCalculation('0');
       ">0</button>
 
       <button onclick="
-        updateCalculation('.')
+        updateCalculation('.');
       ">.</button>
 
       <button onclick="
-        updateCalculation('=')
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+        console.log(calculation);
       ">=</button>
 
       <button onclick="
-        updateCalculation('/')
+        updateCalculation(' / ');
       ">/</button>
     </p>
 
     <p>
       <button onclick="
-        updateCalculation
+        calculation = '';
+        console.log(calculation);
       ">Clear</button>
     </p>
 
+    
     <script>
         let calculation = '';
 
@@ -96,9 +103,7 @@
               return calculation;
             }
 
-        
-
-
+            
     </script>
 
   </body>
