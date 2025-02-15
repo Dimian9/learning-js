@@ -10,7 +10,7 @@
 
       <!--instead of THIS
         <button onclick="
-        calculation += '2';
+        calculation += '2';  calculation = calculation + value;
         console.log(calculation);
       ">2</button>
       -->
@@ -96,14 +96,23 @@
 
     
     <script>
-        let calculation = '';
+        let calculation = localStorage.getItem('calculation') || '';
 
         function updateCalculation(value) {
             calculation += value;
-              return calculation;
+              return calculation; // console.log(calculation); ?
+              localStorage.setItem('calculation', calculation);
             }
 
-            
+
+      // Optional: you can also create a function in order
+      // to reuse this code.
+      function saveCalculation() {
+        localStorage.setItem('calculation', calculation);
+      }
+
+      console.log(calculation);
+      
     </script>
 
   </body>
