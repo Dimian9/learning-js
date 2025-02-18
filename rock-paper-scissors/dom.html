@@ -5,10 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-        <title>Rock Paper Scissors</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <title>DOM Rock Paper Scissors</title>
+   
 
     </head>
 
@@ -18,33 +16,28 @@
 <!--ROCK-->
             <button class="move-button" onclick="
                 playGame('rock');
-            ">
-                <img class="move-icon" src="rock-emoji.png">
-            </button>
+            ">Rock</button>
 
 <!--PAPER-->
             
             <button class="move-button" onclick="
-                playGame('paper')
-            ">
-                <img class="move-icon" src="paper-emoji.png">
-            </button>
+                playGame('paper');
+            ">Paper</button>
 
 <!--SCISSORS-->
             <button class="move-button" onclick="
-                playGame('scissors')
-           ">
-                <img class="move-icon" src="scissors-emoji.png">
-            </button>
+                playGame('scissors');
+           ">Scissors</button>
 
-            <p class="score js-score">Wins: 0, Losses: 0, Ties: 0</p>
+           <p class="js-result"></p>
+           <p class="js-moves"></p>
+            <p class="js-score"></p>
             
 <!--RESET-->
             <button class="reset-score-button" onclick="
-            score.wins = 0;
-            score.losses = 0;
-            score.ties = 0;
+            score = { wins: 0, losses: 0, ties: 0 };
             localStorage.removeItem('score');
+            updateScoreElement();
             ">Reset Score</button>
             
 
@@ -55,6 +48,13 @@
                 ties: 0
             } ; // default operator in case first part is falsy
 
+            if (!score.wins && !score.losses && !score.ties) {
+                score = { wins: 0, losses: 0, ties: 0 };
+            };
+
+            updateScoreElement();
+            updateResult();
+
             /*
             if (!score) {
               score = {
@@ -64,7 +64,7 @@
               }
             } 
             */
-         
+
             function playGame(playerMove) {
                 const computerMove = pickComputerMove(); //global variable, must be outside the function's scope/curly braces for onclick to access
 
@@ -109,11 +109,22 @@
                 }
 
                 localStorage.setItem('score', JSON.stringify(score));
+                
+                updateScoreElement();
+
+                    document.querySelector('.js-result')
+                        .innerHTML = result;
 
 
-                alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+                    document.querySelector('.js-moves')
+                        .innerHTML = `You ${playerMove} - ${computerMove} Computer`;
 
+            }
+
+
+            function updateScoreElement() {
+                document.querySelector('.js-score')
+                    .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties} `;
             }
 
             function pickComputerMove() {
