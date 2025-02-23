@@ -14,9 +14,71 @@
         <p>YouTube Subscribe Button</p>
         <button onclick = "
             subscribe();
-        " class = "js-subscribe-button">Subsribe</button>
+        " class = "js-subscribe-button">Subscribe</button>
+
+
+
+    <!--PROJECT 2-->
+        
+    <p>Amazon Shipping Calculator</p>
+        <!--Orders under $40 = +$10 shipping.
+        Orders over $40 = FREE shipping.-->
+
+    <input placeholder="Cost of order"
+        class="js-cost-input" onkeydown="handleCostKeydown(event)">
+
+    <button onclick="
+        calculateTotal();
+    " >Calculate</button>
+
+    <p class="js-total-cost"></p>
+
+
+
+    <!--PROJECT 3-->
+        <button onclick="
+            document.querySelector('.js-choice').innerHTML = 'You chose: heads';
+        ">heads</button>
+        
+        <button onclick="
+            document.querySelector('.js-choice').innerHTML = 'You chose: tails';
+        "
+        >tails</button>
+        <p class="js-choice"></p>
+
+    <!--PROJECT 4-->
+        <input placeholder="Name" class="js-name-input" onkeydown="
+        if (event.key === 'Enter') {
+            displayMessage();
+        }
+        ">
+        
+        <button onclick="
+        displayMessage();
+        ">Submit</button>
+        
+        <p class="js-message"></p>
+    
+    <!--PROJECT 5-->
+        
+    <input placeholder="Type something" class="js-input" onkeyup="
+        const input = document.querySelector('.js-input');
+        document.querySelector('.js-text').innerHTML = input.value;
+    ">
+
+    <p class="js-text"></p>
 
       <script>
+
+        //project 4
+        function displayMessage() {
+            const inputElement = document.querySelector('.js-name-input');
+            document.querySelector('.js-message')
+            .innerHTML = `Your name is: ${inputElement.value}`;
+        };
+        
+       
+        // project 1
         function subscribe() {
             const buttonElement = document.querySelector('.js-subscribe-button');
 
@@ -26,6 +88,28 @@
                 buttonElement.innerHTML = 'Subscribe';
             }
         };
+
+        //project2
+        function handleCostKeydown (event) {
+            if (event.key === 'Enter') {
+                calculateTotal();
+            }
+        };
+
+        function calculateTotal() {
+            const inputElement = document.querySelector('.js-cost-input'); 
+            let cost = Number(inputElement.value); // .value for input instead of innerHTML
+                                                   // Number() turns value into num
+            if (cost < 40) {
+                Math.round((cost + 10)* 100 / 100);
+            }
+
+            document.querySelector('.js-total-cost')
+              .innerHTML = `$${cost}`;
+        };
+
+    
+
 
 
      

@@ -3,6 +3,8 @@
 <html>
   <head></head>
   <body>
+    <p class="js-calculation"></p>
+
     <p>
       <button onclick="
         updateCalculation('1')
@@ -38,7 +40,7 @@
       ">5</button>
 
       <button onclick="
-        updateCalculation
+        updateCalculation('6')
       ">6</button>
 
       <button onclick="
@@ -79,7 +81,7 @@
         // it can potentially be given harmful code to run.
         // Only use eval() for learning purposes.
         calculation = eval(calculation);
-        console.log(calculation);
+        displayCalculation();
         localStorage.setItem('calculation', calculation);
       ">=</button>
 
@@ -91,7 +93,7 @@
     <p>
       <button onclick="
         calculation = '';
-        console.log(calculation);
+        displayCalculation();
         localStorage.setItem('calculation', calculation);
       ">Clear</button>
     </p>
@@ -102,7 +104,7 @@
 
         function updateCalculation(value) {
             calculation += value;
-              return calculation; // console.log(calculation); ?
+              displayCalculation();
               localStorage.setItem('calculation', calculation);
             }
 
@@ -114,6 +116,11 @@
       }
 
       console.log(calculation);
+
+      function displayCalculation() {
+        document.querySelector('.js-calculation')
+          .innerHTML = `${calculation}`
+      }
       
     </script>
 

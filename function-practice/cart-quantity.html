@@ -6,27 +6,27 @@
   </head>
   <body>
     <button onclick="
-      console.log(`Cart quantity: ${cartQuantity}`);
+      displayCartQuantity();
     ">Show Quantity</button>
 
     <button onclick="
-      updateCartQuantity(+1);
+      updateCartQuantity(1);
     ">Add to Cart</button>
 
     <button onclick="
-      updateCartQuantity(+2);
+      updateCartQuantity(2);
     ">+2</button>
 
     <button onclick="
-      updateCartQuantity(+3);
+      updateCartQuantity(3);
     ">+3</button>
 
     <button onclick="
-      updateCartQuantity(+4);
+      updateCartQuantity(4);
     ">+4</button>
 
     <button onclick="
-      updateCartQuantity(+5);
+      updateCartQuantity(5);
     ">+5</button>
 
     <!-- vvv This code was changed. vvv -->
@@ -46,11 +46,17 @@
     <button onclick="
       cartQuantity = 0;
       console.log('Cart was reset.');
-      console.log(`Cart quantity: ${cartQuantity}`);
+      displayCartQuantity();
     ">Reset Cart</button>
 
+    <p class="js-cart-quantity"></p>
+
     <script>
+
       let cartQuantity = 0;
+
+      displayCartQuantity();
+
       function updateCartQuantity(change) {
         if (cartQuantity + change > 10) {
           alert('The cart is full');
@@ -61,12 +67,18 @@
           alert('Not enough items in the cart');
           return;
         } 
-        
-        if (cartQuantity += change) {
-          console.log(`Cart quantity: ${cartQuantity}`);
+
+        cartQuantity += change;
+        displayCartQuantity();
+
+        function displayCartQuantity() {
+          document.querySelector('.js-cart-quantity')
+        .innerHTML = `Cart quantity: ${cartQuantity}`;
         }
 
+        
       }
+      
 
     </script>
   </body>
