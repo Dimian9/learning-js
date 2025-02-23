@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="dom-with-css.css">
+        <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <title>JS with CSS</title>
+        
+    </head>
+    <style>
+        .toggle-button {
+            color: white;
+            background-color: black;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            font-family: Arial;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .is-toggled {
+            color: black;
+            background-color: rgb(230, 230, 230);
+        }
+
+    </style>
+
+  <body>
+        <button class="js-button toggle-button" onclick="
+            toggleButton('.js-button')
+        ">Gaming</button>
+
+        <button class="js-button-2 toggle-button" onclick="
+            toggleButton('.js-button-2')
+        ">Music</button>
+
+        <button class="js-button-3 toggle-button" onclick="
+            toggleButton('.js-button-3')
+        ">Tech</button>
+
+    <script>
+        function toggleButton(toggle) {
+            const button = document.querySelector(toggle);
+            if (!button.classList.contains('is-toggled')) {
+                button.classList.add('is-toggled');
+            } else {
+                button.classList.remove('is-toggled')
+            }
+
+        }
+    </script>
+    
+  </body>
+</html>
