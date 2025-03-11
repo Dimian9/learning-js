@@ -9,6 +9,7 @@
         <title>JS with CSS</title>
         
     </head>
+
     <style>
         .toggle-button {
             color: white;
@@ -29,7 +30,7 @@
 
     </style>
 
-  <body>
+    <body>
         <button class="js-button toggle-button" onclick="
             toggleButton('.js-button')
         ">Gaming</button>
@@ -42,17 +43,17 @@
             toggleButton('.js-button-3')
         ">Tech</button>
 
-    <script>
-        function toggleButton(toggle) {
-            const button = document.querySelector(toggle);
-            if (!button.classList.contains('is-toggled')) {
-                button.classList.add('is-toggled');
-            } else {
-                button.classList.remove('is-toggled')
-            }
+        <script>
+            function toggleButton(toggle) {
+                const button = document.querySelector(toggle);
+                if (!button.classList.contains('is-toggled')) {
+                    button.classList.add('is-toggled');
+                } else {
+                    button.classList.remove('is-toggled')
+                }
 
-        }
-    </script>
+            }
+        </script>
     
-  </body>
+    </body>
 </html>

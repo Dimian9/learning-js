@@ -33,6 +33,7 @@
     " >Calculate</button>
 
     <p class="js-total-cost"></p>
+    <p class="js-error-message error-message"></p>
 
 
     <!--PROJECT 3-->
@@ -85,6 +86,7 @@
         };
 
         //project2
+
         function handleCostKeydown (event) {
             if (event.key === 'Enter') {
                 calculateTotal();
@@ -92,16 +94,29 @@
         };
 
         function calculateTotal() {
-            const inputElement = document.querySelector('.js-cost-input'); 
-            let cost = Number(inputElement.value); // .value for input instead of innerHTML
-                                                   // Number() turns value into num
-            if (cost < 40) {
-                Math.round((cost + 10)* 100 / 100);
-            }
+        const inputElement = document.querySelector('.js-cost-input');
+        let cost = Number(inputElement.value);
 
-            document.querySelector('.js-total-cost')
-              .innerHTML = `$${cost}`;
-        };
+        document.querySelector('.js-total-cost')
+          .innerHTML = '';
+        document.querySelector('.js-error-message')
+          .innerHTML = '';
+
+        if (cost < 0) {
+          document.querySelector('.js-error-message')
+            .innerHTML = 'Error: cost cannot be less than $0';
+          return;
+        }
+
+        if (cost < 40) {
+          cost = cost + 10;
+        }
+
+        document.querySelector('.js-total-cost')
+          .innerHTML = `$${cost}`;
+      }
+
+        
 
         
         //project 4

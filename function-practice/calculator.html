@@ -3,12 +3,14 @@
 <html>
   <head>
     <title>Calculator</title>
+    <link rel="stylesheet" href="/function-practice/calculator.css">
+
   </head>
   <body>
-    <p class="js-calculation"></p>
+    <p class="js-calculation calculation"></p>
 
     <p>
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('1')
       ">1</button>
 
@@ -19,65 +21,65 @@
       ">2</button>
       -->
 
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('2')
       ">2</button>
 
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('3')
       ">3</button>
 
-      <button onclick="
+      <button class="calculator-button yellow" onclick="
         updateCalculation('+')
       ">+</button>
     </p>
 
     <p>
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('4')
       ">4</button>
 
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('5')
       ">5</button>
 
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('6')
       ">6</button>
 
-      <button onclick="
+      <button class="calculator-button yellow" onclick="
         updateCalculation('-')
       ">-</button>
     </p>
 
     <p>
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('7')
       ">7</button>
 
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('8')
       ">8</button>
 
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('9')
       ">9</button>
 
-      <button onclick="
+      <button class="calculator-button yellow" onclick="
         updateCalculation('*')
       ">*</button>
     </p>
 
     <p>
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('0');
       ">0</button>
 
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         updateCalculation('.');
       ">.</button>
 
-      <button onclick="
+      <button class="calculator-button gray" onclick="
         // Note: eval() takes a string and runs it as code.
         // Avoid using eval() in real world projects since
         // it can potentially be given harmful code to run.
@@ -87,13 +89,13 @@
         localStorage.setItem('calculation', calculation);
       ">=</button>
 
-      <button onclick="
-        updateCalculation(' / ');
+      <button class="calculator-button yellow" onclick="
+        updateCalculation('/');
       ">/</button>
     </p>
 
     <p>
-      <button onclick="
+      <button class="clear-button calculator-button gray" onclick="
         calculation = '';
         displayCalculation();
         localStorage.setItem('calculation', calculation);
