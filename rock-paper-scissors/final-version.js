@@ -17,6 +17,22 @@ if (!score) {
 } 
 */
 
+let isAutoPlaying = false;
+let intervalId;
+
+function autoPlay() {
+    if (!isAutoPlaying) {
+        intervalId = setInterval(() => {
+            const playerMove = pickComputerMove();
+            playGame(playerMove);
+        }, 1000);
+        isAutoPlaying = true;
+    } else {
+        clearInterval(intervalId);
+        isAutoPlaying = false;
+    }
+}
+
 function playGame(playerMove) {
     
     const computerMove = pickComputerMove(); //global variable, must be outside the function's scope/curly braces for onclick to access
@@ -94,3 +110,4 @@ function pickComputerMove() {
     return computerMove;   //return function gets a value/var/calculation or anything out of function
     
 }
+

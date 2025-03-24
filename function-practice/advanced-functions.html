@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Functions</title>
+  </head>
+  <body>
+
+    <script>
+        // functions are values
+        const num = 2;
+        const function1 = function greeting() {
+            console.log('hello2')
+        }; // anonymous function - without greeting
+
+        console.log(function1);
+        console.log(typeof function1);
+        function1();
+
+        //Adv of following code 
+        // hoisting - calling function before we write code
+        function greeting() {
+            console.log('hello')
+        }
+        greeting(); 
+
+        // method = function saved in an object
+        const object1 = {
+            num: 2,
+            fun: function greeting() {
+                console.log('hello3');
+            }
+        };
+        object1.fun();
+
+        // func inside parameter
+        // passing a func into another func
+        function run(param) {
+            param();
+        }
+
+        run(function() {
+            console.log('hello4');
+        });
+
+        //runs a func after some milliseconds
+        setTimeout(function() {
+            console.log('timeout');
+        }, 3000);
+
+        console.log('next line')
+
+        //runs a func after some time AND keeps running it
+        setInterval(function() {
+            console.log('interval');
+            console.log('interval2');
+
+        }, 3000);
+
+        console.log('next line 2')
+    </script>
+  </body>
