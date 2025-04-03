@@ -38,7 +38,8 @@ body {
 }
 
 .reset-score-button,
-.auto-play-button {
+.auto-play-button,
+.reset-confirm-button {
     font-family: Arial;
     font-size: 15px;
     background-color: white;
@@ -46,3 +47,7 @@ body {
     padding: 8px 15px;
     cursor: pointer;
 } 
+
+.reset-confirm-button {
+    margin-left: 10px;
+  }
